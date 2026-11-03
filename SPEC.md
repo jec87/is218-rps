@@ -27,7 +27,17 @@ Results are from the **player’s perspective**. `determine_winner(player, compu
 
 ### Agreed plan
 
-Before implementation, predict one matchup and explain it with your local coding agent. Discuss a short plan and checks. Once it makes sense, ask the agent to replace this paragraph with the agreed plan, preserving the expected results above. Continue in the same chat.
+**Prediction:** I chose rock, and the computer chose paper. I predict I lose because paper covers rock.
+
+**Plan:** Implement all nine Rock, Paper, Scissors outcomes. Display both moves and the correct result. Allow another independent round without saving scores.
+
+**Winning example:** Rock beats scissors.
+
+**Losing example:** Paper beats rock.
+
+**Invalid input:** The server should reject `banana` with HTTP 400 and a helpful message.
+
+**Tests:** Check all nine outcomes, real server requests, invalid inputs, and browser replay. Run the full `check.py` before committing.
 
 ### Checks
 
@@ -44,7 +54,13 @@ Use `unit`, `integration`, and `e2e` pytest markers. Run `.venv/bin/python check
 
 ### Work record
 
-- Issue: add your own issue URL.
-- Pull request / CI: add actual URLs when they exist.
-- Implementation: **Not implemented.** The shell is supplied; `game.py` is unfinished.
-- Checks: **Rules not verified.** Supplied request/browser tests cover the shell only. After implementation, record actual full-check results and your browser observations here; put detailed results in the PR. Passing formatting and analysis alone is not evidence of correct rules.
+- **Issue:** https://github.com/jec87/is218-rps/issues/1
+- **Pull request / CI:** Add actual links after creating the PR.
+- **Implementation:** Completed `determine_winner()` in [game.py](game.py), supporting all nine outcomes.
+- **Unit and integration tests:** [tests/test_game.py](tests/test_game.py) — nine unit cases and one real Flask request/result test.
+- **Browser test:** [tests/e2e/test_round.py](tests/e2e/test_round.py) — real Chromium round and replay.
+- **Full checks:** `.venv/bin/python check.py` passed Black, Pylint, 23 non-browser tests, and 6 Chromium browser tests.
+- **Test explanation:** The rock-versus-paper test checks that the result is `lose`. It would catch a mistake where the game incorrectly returns `win` or `tie`.
+- **Browser observation:** I chose paper, the computer chose rock, and I won because paper covers rock. I played again with scissors, and the computer also chose scissors, resulting in a tie.
+- **Keyboard observation:** Tab moved between the move buttons, and pressing Enter on Rock started another round.
+- **AI assistance:** ChatGPT helped with planning, implementing the rules, writing tests, debugging, and explaining results. I ran the checks and reviewed the game locally.
