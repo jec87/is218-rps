@@ -55,7 +55,8 @@ Use `unit`, `integration`, and `e2e` pytest markers. Run `.venv/bin/python check
 ### Work record
 
 - **Issue:** https://github.com/jec87/is218-rps/issues/1
-- **Pull request / CI:** Add actual links after creating the PR.
+- **Pull request:** https://github.com/jec87/is218-rps/pull/2
+- **CI run:** https://github.com/jec87/is218-rps/actions/runs/41564951362/job/125684120274?pr=2
 - **Implementation:** Completed `determine_winner()` in [game.py](game.py), supporting all nine outcomes.
 - **Unit and integration tests:** [tests/test_game.py](tests/test_game.py) — nine unit cases and one real Flask request/result test.
 - **Browser test:** [tests/e2e/test_round.py](tests/e2e/test_round.py) — real Chromium round and replay.
